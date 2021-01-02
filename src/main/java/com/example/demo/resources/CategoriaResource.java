@@ -25,5 +25,9 @@ public class CategoriaResource {
 		
 		
 	}
+	@RequestMapping(method = RequestMethod.POST)
+	public void add() {
+		
+	}
 	
 }
