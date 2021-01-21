@@ -2,23 +2,42 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.example.demo.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Length(min = 5, max = 129, message = "O tamanho deve ser entre 5 e 120 caracteres")
 	private String nome;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Email(message = "Email inválido")
 	private String email;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String cpfOuCnpj;
 	private Integer tipo;
 	
-	private Integer id;
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String logradouro;
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String numero;
-	private String complemento;
-	private String bairro;
-	private String cep;
 	
+	private String complemento;
+	
+	private String bairro;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String cep;
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String telefone1;
+	
 	private String telefone2;
+	
 	private String telefone3;
 	
 	private Integer cidadeId;
@@ -28,14 +47,13 @@ public class ClienteNewDTO implements Serializable{
 	}
 	
 	
-	public ClienteNewDTO(String nome, String email, String cpfOuCnpj, Integer tipo, Integer id, String logradouro,
+	public ClienteNewDTO(String nome, String email, String cpfOuCnpj, Integer tipo, String logradouro,
 			String numero, String complemento, String bairro, String cep, String telefone1, Integer cidadeId) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = tipo;
-		this.id = id;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
@@ -78,13 +96,6 @@ public class ClienteNewDTO implements Serializable{
 		this.tipo = tipo;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getLogradouro() {
 		return logradouro;
