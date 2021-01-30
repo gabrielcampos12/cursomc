@@ -32,6 +32,7 @@ public class Endereco implements Serializable{
 	@JoinColumn(name = "cidade_id")
 	private Cidade cidade;
 	
+	
 	public Endereco() {
 		
 	}
@@ -113,6 +114,7 @@ public class Endereco implements Serializable{
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
+	
 
 	@Override
 	public int hashCode() {
